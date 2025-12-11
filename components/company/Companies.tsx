@@ -18,6 +18,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import CompanyDetail from "./CompanyDetail";
+import { COMPANY_TAGS_MAP } from "@/lib/data/news-data";
 
 interface CompaniesProps {
   initialCompanies: Company[];
@@ -56,6 +57,17 @@ export default function Companies({
     } finally {
       setIsLoadingMoreCompanies(false);
     }
+  };
+
+  const getCompanyTags = (company: Company) => {
+    const tagIds = company.tags
+      ? company.tags.split(",").filter((id) => id.trim() !== "")
+      : [];
+
+    const displayTags = tagIds
+      .map((id) => COMPANY_TAGS_MAP[id.trim()])
+      .filter((tagName) => tagName !== undefined);
+    return displayTags;
   };
 
   const startResizing = useCallback(() => setIsResizing(true), []);
@@ -201,7 +213,7 @@ export default function Companies({
                 {company.name}
               </div>
               <div className="flex items-center gap-1 flex-wrap">
-                {["Big company", "Urgent", "Hot"].map((tag, i) => (
+                {getCompanyTags(company).map((tag, i) => (
                   <span
                     key={i}
                     className="px-2 py-0.5 bg-neutral-100 border border-neutral-200 rounded text-xs text-neutral-600 whitespace-nowrap"
