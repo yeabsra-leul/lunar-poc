@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-brand-green: #00930A;
+  --color-title-dark: #333333;
+  --color-subtitle-dark: #475569;
+  --color-danger: #CB0000;
+  --color-success: #00930A;
+  --scrollbar-thumb-color: rgba(193, 190, 190, 0.1);
 }
 
 @theme inline {
@@ -10,6 +16,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-brand-green: var(--color-brand-green);
+  --color-title-dark: var(--color-title-dark);
+  --color-subtitle-dark: var(--color-subtitle-dark);
+  --color-danger: var(--color-danger);
+  --color-success: var(--color-success);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +35,22 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.scrollbar-custom {
+  /* Firefox */
+  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+  scrollbar-width: thin;
+}
+
+/* WebKit */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 10px;
+}
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color);
+}
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
+  border-radius: 10px;
 }
