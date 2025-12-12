@@ -10,7 +10,7 @@ import {
   CirclePlus,
   Globe,
   HelpCircle,
-  Plus
+  Plus,
 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -246,7 +246,7 @@ export default function ArticleReview({ articles }: ArticleReviewProps) {
           className="flex-1 bg-bg-main overflow-y-auto relative flex justify-center scroll-smooth scrollbar-custom"
         >
           <div className="my-8 rounded-3xl border-6 border-green-600/50 shadow-sm h-fit">
-            <div className="w-4xl bg-white min-h-full p-12 shadow-sm relative border-x rounded-[18px] border border-brand-green">
+            <div className="w-4xl 2xl:w-6xl bg-white min-h-full p-12 shadow-sm relative border-x rounded-[18px] border border-brand-green">
               <div className="text-title-red font-bold text-sm tracking-wider uppercase px-2 py-1 mb-2 rounded w-fit ml-auto">
                 {activeArticle.company_news[0].company?.name ||
                   "Unknown Company"}
